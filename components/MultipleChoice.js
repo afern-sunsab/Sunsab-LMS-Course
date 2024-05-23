@@ -48,7 +48,8 @@ function MultipleChoice({ question, choices, answer }) {
         <div
           className={`${styles.choice} ${
             shakeChoice === index ? styles.shake : ""
-          }`}
+          }
+			${selectedChoice === index && isCorrect ? styles.correct : ""}`}
           id={"choice" + index}
           key={index}
           onClick={() => handleChoiceClick(index)}
