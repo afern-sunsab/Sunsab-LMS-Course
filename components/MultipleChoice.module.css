@@ -22,6 +22,11 @@
   text-align: center;
 }
 
+.choice.correct {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
 .choice:hover {
   transform: scale(1.05);
 }
