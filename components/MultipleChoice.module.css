@@ -1,0 +1,53 @@
+.questionContainer {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 8px;
+  margin-top: 2em;
+  padding: 1em;
+}
+
+.question {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.choice {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 15px;
+  padding: 1em;
+  margin: 1em;
+  cursor: pointer;
+  text-align: center;
+}
+
+.choice:hover {
+  transform: scale(1.05);
+}
+
+.shake {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.1s;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0px);
+  }
+  25% {
+    transform: translate(5px);
+  }
+  50% {
+    transform: translate(0px);
+  }
+  75% {
+    transform: translate(-5px);
+  }
+  100% {
+    transform: translate(0px);
+  }
+}
