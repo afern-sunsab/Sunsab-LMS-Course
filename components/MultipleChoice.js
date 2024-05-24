@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ConfettiExplosion from "react-confetti-explosion";
 import styles from "./MultipleChoice.module.css";
 
-function MultipleChoice({ question, choices, answer }) {
+function MultipleChoice({ question, choices, answer, explanation }) {
   const [selectedChoice, setSelectedChoice] = useState(null);
   const [isCorrect, setIsCorrect] = useState(false);
   const [isExploding, setIsExploding] = useState(false);
@@ -60,6 +60,9 @@ function MultipleChoice({ question, choices, answer }) {
           </p>
         </div>
       ))}
+	  {(isCorrect && explanation) && (
+		<div className={styles.explanation}>{explanation}</div>
+	  )}
     </div>
   );
 }
