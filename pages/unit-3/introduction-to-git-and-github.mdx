@@ -1,0 +1,77 @@
+# Introduction to Git and GitHub
+
+## Git
+Git is a distributed version control system that allows you to track changes in your codebase. It is a powerful tool that allows you to collaborate with others and keep track of changes in your codebase. Git is widely used in the software development industry and is an essential skill for developers.
+
+### Key Concepts
+- **Repository**: A repository is a collection of files and folders that make up your project. It is where your codebase is stored and tracked by Git.
+- **Commit**: A commit is a snapshot of your code at a specific point in time. It represents a set of changes that you have made to your codebase.
+- **Branch**: A branch is a parallel version of your codebase. It allows you to work on new features or bug fixes without affecting the main codebase.
+- **Merge**: Merging is the process of combining changes from one branch into another. It allows you to incorporate changes from different branches into the main codebase.
+
+### Basic Commands
+These commands are commonly used in Git to manage your codebase and are entered through the command line interface (CLI).
+- `git init`: Initializes a new Git repository in the current directory.
+- `git add <file>`: Adds a file to the staging area.
+- `git commit -m "message"`: Commits the changes in the staging area with a descriptive message.
+- `git status`: Shows the current status of the repository.
+- `git log`: Displays a log of commits in the repository.
+
+## Branches
+Branches are an essential part of Git that allow you to work on different features or bug fixes without affecting the main codebase. They provide a way to isolate changes and collaborate on different aspects of a project. Branches can be created, merged, and deleted to manage the development process effectively.
+### Basic Branching Commands
+- `git branch`: Lists all branches in the repository.
+- `git branch <branch-name>`: Creates a new branch with the specified name.
+- `git checkout <branch-name>`: Switches to the specified branch.
+- `git merge <branch-name>`: Merges changes from the specified branch into the current branch.
+- `git branch -d <branch-name>`: Deletes the specified branch.
+
+Branching in Github Desktop is as simple as clicking on the "Current Branch" dropdown and selecting "New Branch" to create a new branch. You can then switch between branches by selecting them from the dropdown.
+
+### Pull Requests
+Pull requests are a way to propose changes to a repository and collaborate with others on code reviews. They allow you to discuss and review changes before merging them into the main codebase. Pull requests are commonly used in open-source projects and team collaborations to maintain code quality and ensure that changes are thoroughly reviewed.
+
+### Merge Conflicts
+Merge conflicts occur when Git is unable to automatically merge changes from different branches. This can happen when two branches have made conflicting changes to the same file. Resolving merge conflicts involves manually editing the conflicting files to combine the changes and then committing the resolved files. GitHub's web interface and Desktop application provide a visual interface to help you resolve merge conflicts easily.
+
+A conflicting merge can look something like this:
+```plaintext
+<<<<<<< HEAD
+This is the original text.
+=======
+This is the conflicting text.
+>>>>>>> new-branch
+```
+To resolve the conflict, you would edit the file to remove the conflict markers and decide which changes to keep. This can be intimidating when the conflicts are extensive, so it's essential to communicate with your team and understand the changes being made.
+
+## GitHub
+GitHub is a web-based platform that hosts Git repositories and provides collaboration tools for developers. It allows you to share your code with others, collaborate on projects, and contribute to open-source projects. GitHub is widely used in the software development community and is a valuable platform for developers to showcase their work and collaborate with others.
+
+### Key Features
+- **Repositories**: GitHub hosts repositories where you can store your code and collaborate with others.
+- **Issues**: You can create and track issues related to your codebase, such as bugs or feature requests.
+- **Pull Requests**: Pull requests allow you to propose changes to a repository and collaborate with others on code reviews.
+- **Actions**: GitHub Actions automate your workflow by running tasks such as testing and deployment.
+- **Pages**: GitHub Pages allows you to host static websites directly from your GitHub repository.
+
+## Github desktop
+GitHub Desktop is a graphical user interface (GUI) for Git that simplifies the process of working with Git repositories. It provides an intuitive interface for managing your repositories, making it easier to work with Git without using the command line. It's highly recommended for beginners who are new to Git and GitHub. It can be found at [desktop.github.com](https://desktop.github.com/).
+
+## Getting Started
+#### 1. Create a GitHub account.
+#### 2. Create a new repository.
+- If using the command line, enter "git init" in the directory where your code is located.
+- If using GitHub Desktop, click on "File" -> "New Repository" and follow the instructions.
+#### 3. Add your code to the repository.
+- If using the command line, add your files with "git add [file]" and commit them with "git commit -m 'message'".
+- PROTIP: Use "git add ." to add all files in the directory.
+- If using Github Desktop, the "Changes" panel will show you the files that have been modified.
+#### 4. Commit your changes.
+- If using the command line, commit your changes with "git commit -m 'message'".
+- If using GitHub Desktop, enter a commit message in the "Summary" field and click "Commit to main".
+- Be sure to add a descriptive message that explains the changes you made.
+#### 5. Create a GitHub repository.
+- TODO: Add instructions for creating a GitHub repository.
+#### 6. Push your changes to GitHub.
+- If using the command line, push your changes with "git push".
+- If using GitHub Desktop, click on "Repository" > "Push" to push your changes to GitHub.
