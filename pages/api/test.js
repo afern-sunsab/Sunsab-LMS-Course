@@ -7,7 +7,7 @@ export default (req, res) => {
 		password: 'cringe',
 		database: 'test_schema',
 		port: 3306,
-		authPlugin: 'caching_sha2_password'
+		authPlugin: 'mysql_native_password'
 	})
 	connection.query('SELECT * FROM test_table', (error, results) => {
 		if (error) {
