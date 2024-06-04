@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 import { AuthContextProvider } from "../_utils/auth-context";
@@ -8,10 +8,69 @@ import { useUserAuth } from "../_utils/auth-context";
 import { signInWithEmailAndPassword, signOut, getAuth, sendPasswordResetEmail } from "firebase/auth";
 import { auth } from "../_utils/firebase";
 
+//MySQL test
+/*const mysql = require('mysql');
+
+const connection = mysql.createConnection({
+	host: 'localhost',
+	user: 'root',
+	password: 'cringe',
+	database: 'test_schema',
+	port: 3306
+});
+
+connection.connect((err) => {
+	if (err)
+	{
+		console.log("Error connecting to database");
+		return;
+	}
+	console.log("Connected to database");
+});
+
+const query = 'SELECT * FROM test_table';
+//Second query that only selects the column with idtest_table = 2
+const query2 = 'SELECT * FROM test_table WHERE idtest_table = 2';*/
+
 const LoginPage = () => {
 
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
+
+	const [testResult, setTestResult] = useState("Nothin yet");
+	const [testResult2, setTestResult2] = useState("Nothin yet 2");
+
+	useEffect(() => {
+		/*connection.query(query, (err, rows, fields) => {
+			if (err)
+			{
+				console.log("Error with query");
+				return;
+			}
+			console.log("Got results");
+			console.log(rows);
+			setTestResult(JSON.stringify(rows));
+		});
+
+		//Second query
+		connection.query(query2, (err, rows, fields) => {
+			if (err)
+			{
+				console.log("Error with query");
+				return;
+			}
+			console.log("Got results");
+			console.log(rows);
+			setTestResult2(JSON.stringify(rows));
+		});*/
+		//Gott fetch instead, apparently
+		fetch("/api/test")
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+				setTestResult(JSON.stringify(data));
+			});
+	}, []);
 
 	function handleEmailPasswordSignIn(e){
 		e.preventDefault();
@@ -50,6 +109,11 @@ const LoginPage = () => {
 		<AuthContextProvider>
 			<LoginTest />
 		</AuthContextProvider>
+		<div>
+			<h1>Test results</h1>
+			<p>{testResult}</p>
+			<p>{testResult2}</p>
+		</div>
 	</div>
 );
 }
