@@ -37,7 +37,7 @@ const LoginPage = () => {
 	const [email, setEmail] = React.useState("");
 	const [password, setPassword] = React.useState("");
 
-	const [testResult, setTestResult] = useState("Nothin yet");
+	const [testResult, setTestResult] = useState([]);
 	const [testResult2, setTestResult2] = useState("Nothin yet 2");
 
 	useEffect(() => {
@@ -65,11 +65,11 @@ const LoginPage = () => {
 		});*/
 		//Gott fetch instead, apparently
 		fetch("/api/test")
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data);
-				setTestResult(JSON.stringify(data));
-			});
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    setTestResult(data.users); // Set data object directly in state
+  });
 	}, []);
 
 	function handleEmailPasswordSignIn(e){
@@ -109,10 +109,20 @@ const LoginPage = () => {
 		<AuthContextProvider>
 			<LoginTest />
 		</AuthContextProvider>
-		<div>
+		<div className="flex flex-col">
 			<h1>Test results</h1>
-			<p>{testResult}</p>
-			<p>{testResult2}</p>
+			<p>Raw data: {testResult && JSON.stringify(testResult)}</p>
+			{Array.isArray(testResult) ?
+			testResult.map((user, index) => {
+				return (
+					<div key={index}>
+						<div>{user.idtest_table}</div>
+						<div>{user.test_tablecol}</div>
+						<div>{user.test_tablecol1}</div>
+					</div>
+				);
+			})
+		: <p>Error parsing data</p>}
 		</div>
 	</div>
 );
