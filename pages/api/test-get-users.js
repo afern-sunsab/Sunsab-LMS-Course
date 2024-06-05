@@ -1,0 +1,20 @@
+import mysql from 'mysql'
+
+export default (req, res) => {
+	const connection = mysql.createConnection({
+		host: 'localhost',
+		user: 'root',
+		password: 'cringe',
+		database: 'test_schema',
+		port: 3306,
+		authPlugin: 'mysql_native_password'
+	})
+	connection.query('SELECT * FROM test_users', (error, results) => {
+		if (error) {
+		return res.status(500).json({ error })
+		}
+
+		res.status(200).json({ users: results })
+		connection.end()
+	})
+}
