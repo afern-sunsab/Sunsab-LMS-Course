@@ -15,6 +15,10 @@ export default function Slideshow({ file }) {
     width: "100%",
     height: "100%",
   };
+
+  const pdfLink = `/slides/index.html?set=${file}&print-pdf`;
+  const pdfDownloadLink = `${pdfLink}&_e=download`;
+
   return (
     <div>
       <div style={containerStyle}>
@@ -23,7 +27,9 @@ export default function Slideshow({ file }) {
           style={iframeStyle}
         ></iframe>
       </div>
-      <Link href={file}>View all slides</Link>
+      <Link href={pdfLink} target="_blank">
+          View as PDF
+        </Link>
     </div>
   );
 }
