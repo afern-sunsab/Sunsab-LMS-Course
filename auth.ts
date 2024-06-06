@@ -1,6 +1,7 @@
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 //import { saltAndHashPassword } from "@/utils/password"
+import { getUserByLogin } from "@/_utils/database-services"
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
 	providers: [
@@ -18,7 +19,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 			//const pwHash = saltAndHashPassword(credentials.password)
 	
 			// logic to verify if user exists
-			//user = await getUserFromDb(credentials.email, credentials.password)
+			user = await getUserFromDb(credentials.email, credentials.password)
 	
 			if (!user) {
 				// No user found, so this is their first attempt to login
@@ -32,3 +33,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 		}),
 	],
 })
+
+const getUserFromDb = async (email, password) => {
+	return null;
+}
